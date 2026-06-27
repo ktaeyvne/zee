@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-ink-400;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-ink-800 text-bone font-body antialiased;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  ::selection {
+    background-color: rgba(201, 162, 39, 0.35);
+    color: #f5f3ec;
+  }
+
+  :focus-visible {
+    outline: 2px solid #C9A227;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Slim cinematic scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0A0A0A;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #856617, #C9A227);
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #E8C547;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Eyebrow label used to mark each section, e.g. "01 — TENTANG KAMI" */
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-[11px] sm:text-xs font-semibold uppercase tracking-widest2 text-gold-300;
+  }
+
+  .eyebrow::before {
+    content: '';
+    @apply h-px w-6 bg-gold-300;
+  }
+
+  .section-heading {
+    @apply font-display font-semibold text-3xl sm:text-4xl md:text-5xl leading-[1.08] text-bone;
+  }
+
+  .glass-card {
+    @apply relative rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.55);
+  }
+
+  .glass-card::before {
+    content: '';
+    @apply pointer-events-none absolute inset-0 rounded-2xl;
+    background: linear-gradient(135deg, rgba(255,255,255,0.06), transparent 40%);
+  }
+
+  .btn-gold {
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gold-sheen px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-ink-900 transition-transform duration-300 ease-out;
+    box-shadow: 0 0 0 1px rgba(201,162,39,0.4), 0 12px 30px -10px rgba(201,162,39,0.55);
+  }
+  .btn-gold:hover {
+    transform: translateY(-2px) scale(1.015);
+  }
+  .btn-gold:active {
+    transform: translateY(0) scale(0.99);
+  }
+
+  .btn-outline {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/[0.03] px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-bone backdrop-blur-md transition-all duration-300 ease-out hover:border-gold-300/70 hover:text-gold-200;
+  }
+
+  /* Aperture frame corners — reused motif from the brand mark on portfolio hover */
+  .aperture-frame {
+    position: relative;
+  }
+  .aperture-frame::before,
+  .aperture-frame::after {
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #C9A227;
+    opacity: 0;
+    transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease;
+  }
+  .aperture-frame::before {
+    top: 10px;
+    left: 10px;
+    border-right: none;
+    border-bottom: none;
+  }
+  .aperture-frame::after {
+    bottom: 10px;
+    right: 10px;
+    border-left: none;
+    border-top: none;
+  }
+  .aperture-frame:hover::before,
+  .aperture-frame:hover::after {
+    opacity: 1;
+    width: 28px;
+    height: 28px;
+  }
+
+  .input-field {
+    @apply w-full rounded-lg border border-white/15 bg-white/[0.03] px-4 py-3 text-sm text-bone placeholder:text-bone-muted/60 transition-colors duration-200 focus:border-gold-300/60 focus:bg-white/[0.05] focus:outline-none;
+  }
+
+  .skeleton-shimmer {
+    background: linear-gradient(90deg, #161616 25%, #1f1f1f 37%, #161616 63%);
+    background-size: 400% 100%;
+    animation: shimmer 2.5s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
