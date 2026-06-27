@@ -14,7 +14,7 @@ export const showcaseVideos: ShowcaseVideo[] = [
     title: 'Civic Hatchback — Cahaya Kota',
     vehicleType: 'Mobil — Honda Hatchback',
     location: 'Bandar Lampung',
-    poster: '/images/t1.jpeg',
+    poster: '/zee/images/t1.jpeg',
 
     videoSrc: '/videos/showcase-01-civic-type-r.mp4',
   },
@@ -23,7 +23,7 @@ export const showcaseVideos: ShowcaseVideo[] = [
     title: 'HiAce Premio — Cahaya Malam',
     vehicleType: 'Mobil — Toyota HiAce Premio',
     location: 'Teluk Betung',
-    poster: '/images/t2.jpeg',
+    poster: '/zee/images/t2.jpeg',
 
     videoSrc: '/videos/showcase-02-nmax-turbo.mp4',
   },
@@ -32,7 +32,7 @@ export const showcaseVideos: ShowcaseVideo[] = [
     title: 'HONDA BEAT — Malam Tanpa Akhir',
     vehicleType: 'Motor — Honda Beat',
     location: 'Kemiling',
-    poster: '/images/t3.jpeg',
+    poster: '/zee/images/t3.jpeg',
 
     videoSrc: '/videos/showcase-03-pajero-sport.mp4',
   },
@@ -41,7 +41,7 @@ export const showcaseVideos: ShowcaseVideo[] = [
     title: 'Civic Hatchback — Sprint Tengah Malam',
     vehicleType: 'Mobil — Honda Civic Hatchback',
     location: 'Jl. Sudirman',
-    poster: '/images/t4.jpeg',
+    poster: '/zee/images/t4.jpeg',
 
     videoSrc: '/videos/showcase-04-cbr150.mp4',
   },
@@ -50,7 +50,7 @@ export const showcaseVideos: ShowcaseVideo[] = [
     title: 'Fortuner GR — Diam yang Berkuasa',
     vehicleType: 'Mobil — Toyota Fortuner GR Sport',
     location: 'Rajabasa',
-    poster: '/images/t5.jpeg',
+    poster: '/zee/images/t5.jpeg',
 
     videoSrc: '/videos/showcase-05-fortuner-gr.mp4',
   },
@@ -59,7 +59,7 @@ export const showcaseVideos: ShowcaseVideo[] = [
     title: 'Toyoya Innova — Tepi Kota',
     vehicleType: 'Mobil — Toyota Innova',
     location: 'Sukarame',
-    poster: '/images/t6.jpeg',
+    poster: '/zee/images/t6.jpeg',
 
     videoSrc: '/videos/showcase-06-aerox-alpha.mp4',
   },
