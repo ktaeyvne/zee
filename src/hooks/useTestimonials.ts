@@ -29,6 +29,13 @@ export function useTestimonials(): UseTestimonialsResult {
     let isMounted = true;
 
     async function load() {
+      if (!supabase) {
+        setTestimonials(fallbackTestimonials);
+        setIsFallback(true);
+        setIsLoading(false);
+        return;
+      }
+
       const { data, error: fetchError } = await supabase
         .from('testimonials')
         .select('id, name, vehicle, avatar_url, rating, quote')

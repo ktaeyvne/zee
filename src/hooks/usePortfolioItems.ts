@@ -29,6 +29,13 @@ export function usePortfolioItems(): UsePortfolioItemsResult {
     let isMounted = true;
 
     async function load() {
+      if (!supabase) {
+        setItems(fallbackPortfolioItems);
+        setIsFallback(true);
+        setIsLoading(false);
+        return;
+      }
+
       const { data, error: fetchError } = await supabase
         .from('portfolio_items')
         .select('id, title, category, location, image_url, span')
