@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { testimonials as fallbackTestimonials } from '@/data/testimonials';
 import type { Testimonial } from '@/data/types';
+import type { Database } from '@/lib/database.types';
 import { supabase } from '@/lib/supabaseClient';
 
 interface UseTestimonialsResult {
@@ -9,6 +10,8 @@ interface UseTestimonialsResult {
   isFallback: boolean;
   error: string | null;
 }
+
+type TestimonialRow = Database['public']['Tables']['testimonials']['Row'];
 
 /**
  * Loads published testimonials from Supabase (`testimonials` table),
@@ -42,8 +45,9 @@ export function useTestimonials(): UseTestimonialsResult {
         return;
       }
 
+      const rows = data as TestimonialRow[];
       setTestimonials(
-        data.map((row) => ({
+        rows.map((row) => ({
           id: row.id,
           name: row.name,
           vehicle: row.vehicle,

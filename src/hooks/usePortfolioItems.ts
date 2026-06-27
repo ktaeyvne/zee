@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { portfolioItems as fallbackPortfolioItems } from '@/data/portfolio';
 import type { PortfolioItem } from '@/data/types';
+import type { Database } from '@/lib/database.types';
 import { supabase } from '@/lib/supabaseClient';
 
 interface UsePortfolioItemsResult {
@@ -9,6 +10,8 @@ interface UsePortfolioItemsResult {
   isFallback: boolean;
   error: string | null;
 }
+
+type PortfolioItemRow = Database['public']['Tables']['portfolio_items']['Row'];
 
 /**
  * Loads published portfolio items from Supabase (`portfolio_items` table),
@@ -42,8 +45,9 @@ export function usePortfolioItems(): UsePortfolioItemsResult {
         return;
       }
 
+      const rows = data as PortfolioItemRow[];
       setItems(
-        data.map((row) => ({
+        rows.map((row) => ({
           id: row.id,
           title: row.title,
           category: row.category,
