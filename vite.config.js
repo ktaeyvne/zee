@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 export default defineConfig({
+    base: '/',
     plugins: [react()],
     resolve: {
         alias: {
@@ -18,13 +19,5 @@ export default defineConfig({
         sourcemap: false,
         cssCodeSplit: true,
         chunkSizeWarningLimit: 1000,
-        rollupOptions: {
-            output: {
-                manualChunks: {
-                    vendor: ['react', 'react-dom'],
-                    motion: ['framer-motion'],
-                },
-            },
-        },
     },
 });
