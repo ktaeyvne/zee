@@ -2,8 +2,10 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
 
+const repoBase = process.env.GITHUB_ACTIONS ? '/zee/' : './'
+
 export default defineConfig({
-  base: '/zee/',
+  base: repoBase,
 
   plugins: [react()],
 
